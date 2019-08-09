@@ -5,13 +5,11 @@ const Cards = (props) => {
 
     const {recipeList} = props
 
-    console.log('props', props)
-
     return (
         <div>
         {recipeList.map(recipe => {
             return (
-                <Card>
+                <Card key = {Date.now()} data-testid = 'card'>
                 <Card.Content>
                     <Card.Header>{recipe.name}</Card.Header>
                     <Card.Meta>

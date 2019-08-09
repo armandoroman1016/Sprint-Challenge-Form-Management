@@ -16,16 +16,9 @@ class App extends React.Component{
     this.setState({recipeList : [...this.state.recipeList, data[1]]})
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if(true){
-      console.log('CDU',this.state.recipeList)
-    }
-  }
-
   render(){
     return (
     <div className="App">
-      
       <FormikForm addUserOrRecipe = {this.addUserOrRecipe}/>
       <Cards recipeList = {this.state.recipeList}/>      
     </div>
