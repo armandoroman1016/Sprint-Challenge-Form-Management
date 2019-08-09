@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import FormikForm from './components/Form'
+import Cards from './components/UserCard'
 import './App.css';
 
-function App() {
-  return (
+class App extends React.Component{
+
+  constructor(){
+    super()
+    this.state = {
+      recipeList : []
+    }
+  }
+
+  addUserOrRecipe = (data) => {
+    this.setState({recipeList : [...this.state.recipeList, data[1]]})
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(true){
+      console.log('CDU',this.state.recipeList)
+    }
+  }
+
+  render(){
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <FormikForm addUserOrRecipe = {this.addUserOrRecipe}/>
+      <Cards recipeList = {this.state.recipeList}/>      
     </div>
-  );
+  )
+    };
 }
 
 export default App;
